@@ -41,6 +41,14 @@ public class Controller {
         this.s_view = s_view;
         
         view.addHomeButtonListener(new HomeButtonListener());
+        
+        view.addOffersButtonListener(new OffersButtonListener());
+        
+        view.addStoresButtonListener(new StoresButtonListener());
+        
+        view.addPostButtonListener(new PostButtonListener());
+        
+        view.addSettingsButtonListener(new SettingsButtonListener());
     
     }
     
@@ -50,5 +58,37 @@ public class Controller {
         {                 
                 view.switchToHomePanel(h_view);        
         }
-    }     
+    }   
+    
+    class OffersButtonListener implements ActionListener {            
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {                 
+                view.switchToOffersPanel(o_view);        
+        }
+    }  
+    
+    class StoresButtonListener implements ActionListener {            
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {                 
+                view.switchToStoresPanel(st_view);        
+        }
+    } 
+    
+    class PostButtonListener implements ActionListener {            
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {                 
+                view.switchToPostPanel(p_view);        
+        }
+    }  
+    
+    class SettingsButtonListener implements ActionListener {            
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {                 
+                view.switchToSettingsPanel(s_view);        
+        }
+    }  
 }
