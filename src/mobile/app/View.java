@@ -32,6 +32,7 @@ public class View extends JFrame{
         nVpanel.removeStores();
         nVpanel.removePost();
         nVpanel.removeSettings();
+        nVpanel.removeHome();
         nVpanel.addHome(h_view);
     }
     public void switchToOffersPanel(OffersView o_view)
@@ -41,6 +42,7 @@ public class View extends JFrame{
         nVpanel.removeStores();
         nVpanel.removePost();
         nVpanel.removeSettings();
+        nVpanel.removeOffers();
         nVpanel.addOffers(o_view);
     }
     public void switchToStoresPanel(StoresView st_view)
@@ -50,6 +52,7 @@ public class View extends JFrame{
         nVpanel.removeHome();
         nVpanel.removePost();
         nVpanel.removeSettings();
+        nVpanel.removeStores();
         nVpanel.addStores(st_view);
     }
     public void switchToPostPanel(PostView p_view)
@@ -59,6 +62,7 @@ public class View extends JFrame{
         nVpanel.removeOffers();
         nVpanel.removeStores();
         nVpanel.removeSettings();
+        nVpanel.removePost();
         nVpanel.addPost(p_view);
     }
     public void switchToSettingsPanel(SettingsView s_view)
@@ -68,6 +72,7 @@ public class View extends JFrame{
         nVpanel.removeOffers();
         nVpanel.removeStores();
         nVpanel.removePost();
+        nVpanel.removeSettings();
         nVpanel.addSettings(s_view);
     }
     
