@@ -5,8 +5,9 @@
  */
 package mobile.app;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
 
 /**
  *
@@ -30,15 +31,15 @@ public class Controller {
         
         this.view = view;
         
-        this.h_view = h_view;
+        h_view = new HomeView();
         
-        this.o_view = o_view;
+        o_view = new OffersView();
         
-        this.st_view = st_view;
+        st_view = new StoresView();
         
-        this.p_view = p_view;
+        p_view = new PostView();
         
-        this.s_view = s_view;
+        s_view = new SettingsView();
         
         view.addHomeButtonListener(new HomeButtonListener());
         
