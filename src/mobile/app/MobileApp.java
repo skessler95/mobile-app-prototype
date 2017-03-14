@@ -18,7 +18,9 @@ public class MobileApp {
         // TODO code application logic here
         
          View view = new View();
+         Controller controller = new Controller(view);
          view.setVisible(true);
+        
     }
     
 }
