@@ -17,7 +17,7 @@ public class ViewSplash extends JPanel {
     private JLabel optionalLabel;
     
     ViewSplash(){
-    splashLabel = new JLabel(new ImageIcon());
+    splashLabel = new JLabel(new ImageIcon("src/images/app.jpg"));
     add(splashLabel);
     
     optionalLabel = new JLabel("");
