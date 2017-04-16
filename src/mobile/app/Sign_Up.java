@@ -26,93 +26,135 @@ public class Sign_Up extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jLabel1 = new javax.swing.JLabel();
-        jTextFieldUsername1 = new javax.swing.JTextField();
-        jTextFieldEmails = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jLabelPassword1 = new javax.swing.JLabel();
-        jLabelPassword2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jRadioOptionButton1 = new javax.swing.JRadioButton();
-        jRadioOptionButton2 = new javax.swing.JRadioButton();
-        jRadioOptionButton3 = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/app.jpg"))); // NOI18N
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        UsernameTextField = new javax.swing.JTextField();
+        EmailTextField = new javax.swing.JTextField();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        ButtonSignUp = new javax.swing.JButton();
+        PasswordField = new javax.swing.JPasswordField();
+        ReEnterPasswordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
-        jTextFieldUsername1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextFieldUsername1.setText("Username");
-        getContentPane().add(jTextFieldUsername1);
-        jTextFieldUsername1.setBounds(200, 280, 360, 28);
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel1.setText("Username");
 
-        jTextFieldEmails.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jTextFieldEmails.setText("Email");
-        jTextFieldEmails.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel2.setText("Email");
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel3.setText("Password");
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel4.setText("Re-enter Password");
+
+        UsernameTextField.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        UsernameTextField.setText("jTextField1");
+
+        EmailTextField.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        EmailTextField.setText("jTextField2");
+
+        jRadioButton1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jRadioButton1.setText("Women clothing, shoes, handbags, and accessories");
+
+        jRadioButton2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jRadioButton2.setText("Men clothing, shoes, handbags, and accessories\n");
+
+        jRadioButton3.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jRadioButton3.setText("Sign up for emails about the latest looks, sales, events, and more");
+
+        ButtonSignUp.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        ButtonSignUp.setText("Sign Up");
+        ButtonSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldEmailsActionPerformed(evt);
+                ButtonSignUpActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldEmails);
-        jTextFieldEmails.setBounds(200, 340, 360, 28);
 
-        jPasswordField1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(200, 390, 360, 28);
+        PasswordField.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        PasswordField.setText("jPasswordField1");
 
-        jPasswordField2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        getContentPane().add(jPasswordField2);
-        jPasswordField2.setBounds(200, 462, 360, 30);
+        ReEnterPasswordField.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        ReEnterPasswordField.setText("jPasswordField2");
 
-        jLabelPassword1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabelPassword1.setText("Password");
-        getContentPane().add(jLabelPassword1);
-        jLabelPassword1.setBounds(40, 390, 109, 20);
-
-        jLabelPassword2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabelPassword2.setText("Re-enter Password");
-        getContentPane().add(jLabelPassword2);
-        jLabelPassword2.setBounds(40, 470, 137, 22);
-
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jButton1.setText("Sign Up");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(300, 750, 100, 31);
-
-        jRadioOptionButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jRadioOptionButton1.setText("Women Clothing, Shoes, handbags and accessories");
-        getContentPane().add(jRadioOptionButton1);
-        jRadioOptionButton1.setBounds(200, 530, 401, 31);
-
-        jRadioOptionButton2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jRadioOptionButton2.setText("Men Clothing, Shoes, handbags and accessories");
-        getContentPane().add(jRadioOptionButton2);
-        jRadioOptionButton2.setBounds(200, 600, 401, 31);
-
-        jRadioOptionButton3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jRadioOptionButton3.setText("Sign Up for emails about the latest looks, sales, events and more");
-        getContentPane().add(jRadioOptionButton3);
-        jRadioOptionButton3.setBounds(200, 660, 520, 31);
-
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jLabel2, org.jdesktop.beansbinding.ELProperty.create("${}"), jLabel2, org.jdesktop.beansbinding.BeanProperty.create("background"));
-        bindingGroup.addBinding(binding);
-
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 810, 850);
-
-        bindingGroup.bind();
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(118, 118, 118)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ReEnterPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(UsernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(195, 195, 195)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton2)
+                            .addComponent(jRadioButton1)
+                            .addComponent(jRadioButton3)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(325, 325, 325)
+                        .addComponent(ButtonSignUp)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(UsernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(ReEnterPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(93, 93, 93)
+                .addComponent(jRadioButton1)
+                .addGap(53, 53, 53)
+                .addComponent(jRadioButton2)
+                .addGap(49, 49, 49)
+                .addComponent(jRadioButton3)
+                .addGap(70, 70, 70)
+                .addComponent(ButtonSignUp)
+                .addGap(59, 59, 59))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldEmailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldEmailsActionPerformed
+    private void ButtonSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSignUpActionPerformed
+       
+        PasswordField = ReEnterPasswordField;
+    }//GEN-LAST:event_ButtonSignUpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,18 +192,17 @@ public class Sign_Up extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton ButtonSignUp;
+    private javax.swing.JTextField EmailTextField;
+    private javax.swing.JPasswordField PasswordField;
+    private javax.swing.JPasswordField ReEnterPasswordField;
+    private javax.swing.JTextField UsernameTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabelPassword1;
-    private javax.swing.JLabel jLabelPassword2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JRadioButton jRadioOptionButton1;
-    private javax.swing.JRadioButton jRadioOptionButton2;
-    private javax.swing.JRadioButton jRadioOptionButton3;
-    private javax.swing.JTextField jTextFieldEmails;
-    private javax.swing.JTextField jTextFieldUsername1;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
     // End of variables declaration//GEN-END:variables
 }
