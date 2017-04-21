@@ -19,7 +19,9 @@ public class Controller {
     
     private HomeView h_view;
     
+    private OffersModel o_model;
     private OffersView o_view;
+    private OffersController o_controller;
     
     private StoresView st_view;
     
@@ -33,7 +35,9 @@ public class Controller {
         
         h_view = new HomeView();
         
-        o_view = new OffersView();
+        o_model = new OffersModel();
+        o_view = new OffersView() {};
+        o_controller = new OffersController();
         
         st_view = new StoresView();
         
