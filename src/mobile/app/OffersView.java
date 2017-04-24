@@ -17,57 +17,73 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public abstract class OffersView extends JPanel implements ActionListener{
     
-    private JLabel imageLabel;
+    private JLabel image;
+    private String imagebackground;
     private JButton uploadButton;
+    private OffersModel o_model;
     
-    OffersView(){
+    OffersView(OffersModel o_model){
         
-         GridLayout grid = new GridLayout(15,15);
+   
          
-         imageLabel = new JLabel(" ");
-         add(imageLabel);
+         this.o_model = o_model;
+         image = new JLabel(" ");
+         add(image);
          
          uploadButton = new JButton("Upload");
          add(uploadButton);
          
+         SetIcon();
+         
+         GridLayout grid = new GridLayout(15,15);
+         
          setLayout(grid);
         }
-         public void addButtonListener(ActionListener al){
-          uploadButton.addActionListener(al);
-          
     
+        public void addButtonListener(ActionListener al){
+          uploadButton.addActionListener(al);
         }
          
-         public JButton getUploadButton(){
-             return uploadButton;
+        public void setImageField(String Image1) {
+            Image1 = image.getText();
+            o_model.setImage(Image1);
+         }
+        
+        public void SetIcon(){
+    //        setImageBackground(Toolkit.getDefaultToolkit().getImage(getClass().getResource("IconImage.png")));
+        }
+         
+         
+         public JLabel getImageBackground(){
+             return image;
          }
          
-         public void setUploadButton(JButton uploadButton){
-             this.uploadButton = uploadButton;
-         }
-         
-         public JLabel getImageLabel(){
-             return imageLabel;
-         }
-         
-         public ImageIcon setImageLabel(String imagePath){
-             
+         public ImageIcon setImageBackground(String imagePath){
              ImageIcon Myimage = new ImageIcon(imagePath);
              Image img = Myimage.getImage();
-             Image newImg = img.getScaledInstance(imageLabel.getWidth() , imageLabel.getHeight() , Image.SCALE_SMOOTH);
+             Image newImg = img.getScaledInstance(image.getWidth() , image.getHeight() , Image.SCALE_SMOOTH);
              ImageIcon image = new ImageIcon(newImg);
              return image;
          }   
+         
+         public JButton getUploadButton(){
+            return uploadButton;   
+        }
+        
+         public void setUploadButton(JButton uploadButton){
+             this.uploadButton = uploadButton;
+         }
          
          @Override
          public void actionPerformed(ActionEvent e){
              
              if(uploadButton.isSelected()){
               
-                 imageLabel.setEnabled(true);
+                 image.setEnabled(true);
              }
              else{
-                 imageLabel.setEnabled(false);
+                 image.setEnabled(false);
+                 image.setText(imagebackground);
              }
              
              JFileChooser file = new JFileChooser();
@@ -78,7 +94,7 @@ public abstract class OffersView extends JPanel implements ActionListener{
              if(result == JFileChooser.APPROVE_OPTION){
                  File selectedFile = file.getSelectedFile();
                  String path = selectedFile.getAbsolutePath();
-                 imageLabel.setIcon(setImageLabel(path));
+                 image.setIcon(setImageBackground(path));
              }
              else if(result == JFileChooser.CANCEL_OPTION){
                  System.out.println("No File Chosen");

@@ -20,14 +20,13 @@ public class OffersController {
     OffersController(OffersModel o_model, OffersView o_view){
         this.o_model = o_model;
         this.o_view = o_view;
-        
-        
+    
         
         class ButtonListener implements ActionListener{
             public void actionPerformed(ActionEvent e){
                 JButton clickSource = (JButton)e.getSource();
                 if(clickSource == o_view.getUploadButton()){
-                    o_view.setImageLabel(null);
+                    o_view.setImageBackground(null);
                 }
             }
         }

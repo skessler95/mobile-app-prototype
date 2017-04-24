@@ -11,8 +11,10 @@ package mobile.app;
  */
 public class OffersModel {
     
+    private String image;
     private String imagebackground;
     private boolean hasChanged;
+    private boolean displayNames;
     
     OffersModel(){
         hasChanged = false;
@@ -22,7 +24,25 @@ public class OffersModel {
         return hasChanged;
     }
     
+    public void setImage(String image){
+        this.image = image;
+    }
+    
+    public String getImage(){
+        return image;
+    }
+    
     public void setChanged(boolean h){
         hasChanged = h;
     }
+    
+    public void setDisplayNames(boolean b){
+        this.displayNames = b;
+    }
+    
+    public boolean getDisplayNames(){
+        return this.displayNames;
+    }
+    
+    
 }

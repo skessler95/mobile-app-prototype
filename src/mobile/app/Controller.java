@@ -35,9 +35,10 @@ public class Controller {
         
         h_view = new HomeView();
         
+        //Instance Variables for Options Model, View, and Controller
         o_model = new OffersModel();
-        o_view = new OffersView() {};
-        o_controller = new OffersController();
+        o_view = new OffersView(o_model) {};
+        o_controller = new OffersController(o_model, o_view);
         
         st_view = new StoresView();
         
@@ -46,15 +47,10 @@ public class Controller {
         s_view = new SettingsView();
         
         view.addHomeButtonListener(new HomeButtonListener());
-        
         view.addOffersButtonListener(new OffersButtonListener());
-        
         view.addStoresButtonListener(new StoresButtonListener());
-        
         view.addPostButtonListener(new PostButtonListener());
-        
         view.addSettingsButtonListener(new SettingsButtonListener());
-    
     }
     
     class HomeButtonListener implements ActionListener {            
