@@ -8,6 +8,8 @@ package mobile.app;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.File;
+import javax.swing.filechooser.FileNameExtensionFilter;
         
 /**
  *
@@ -17,6 +19,7 @@ public class OffersController {
     private OffersModel o_model;
     private OffersView o_view;
     private Image defaultimage;
+    public JLabel image;
     
     OffersController(OffersModel o_model, OffersView o_view){
         this.o_model = o_model;
@@ -28,11 +31,27 @@ public class OffersController {
             public void actionPerformed(ActionEvent e){
                 JButton clickSource = (JButton)e.getSource();
                 if(clickSource == o_view.getUploadButton()){
+                JFileChooser file = new JFileChooser();
+             file.setCurrentDirectory(new File(System.getProperty("user.home")));
+             FileNameExtensionFilter filter = new FileNameExtensionFilter("*.images","jpg","gif","png");
+             file.addChoosableFileFilter(filter);
+             int result = file.showSaveDialog(null);
+             if(result == JFileChooser.APPROVE_OPTION){
+                 File selectedFile = file.getSelectedFile();
+                 String path = selectedFile.getAbsolutePath();
+                 image.setIcon(o_view.setImageBackground(path));  
+               }
+             else if(result == JFileChooser.CANCEL_OPTION){
+                 System.out.println("No File Chosen");
+                        }
+                    }
+                if(clickSource == o_view.getSaveButton()){
                     
+                    }
                 }
             }
+            o_view.addButtonListener(new ButtonListener());
+        
         }
-        o_view.addButtonListener(new ButtonListener());
+       
     }
-    
-}

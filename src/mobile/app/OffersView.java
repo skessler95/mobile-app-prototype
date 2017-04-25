@@ -8,8 +8,7 @@ package mobile.app;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-import java.io.File;
-import javax.swing.filechooser.FileNameExtensionFilter;
+
 
 /**
  *
@@ -17,7 +16,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public abstract class OffersView extends JPanel implements ActionListener{
     
-    private JLabel image;
+    public JLabel image;
     private String imagebackground;
     private JButton uploadButton;
     private JButton saveButton;
@@ -44,26 +43,7 @@ public abstract class OffersView extends JPanel implements ActionListener{
          iButtonLabel = new JLabel("Choose an image");
          add(iButtonLabel);
          
-         uploadButton.addActionListener(new ActionListener(){
-             @Override
-             public void actionPerformed(ActionEvent e){
-                JFileChooser file = new JFileChooser();
-             file.setCurrentDirectory(new File(System.getProperty("user.home")));
-             FileNameExtensionFilter filter = new FileNameExtensionFilter("*.images","jpg","gif","png");
-             file.addChoosableFileFilter(filter);
-             int result = file.showSaveDialog(null);
-             if(result == JFileChooser.APPROVE_OPTION){
-                 File selectedFile = file.getSelectedFile();
-                 String path = selectedFile.getAbsolutePath();
-                 image.setIcon(setImageBackground(path));  
-               }
-             else if(result == JFileChooser.CANCEL_OPTION){
-                 System.out.println("No File Chosen");
-             }
-            }
-         });
-         SetIcon();
-         
+
          GridLayout grid = new GridLayout(15,15);
          
          setLayout(grid);
@@ -71,17 +51,13 @@ public abstract class OffersView extends JPanel implements ActionListener{
     
         public void addButtonListener(ActionListener al){
           uploadButton.addActionListener(al);
+          saveButton.addActionListener(al);
         }
          
         public void setImageField(String Image1) {
             Image1 = image.getText();
             o_model.setImage(Image1);
          }
-        
-        public void SetIcon(){
-    //        setImageBackground(Toolkit.getDefaultToolkit().getImage(getClass().getResource("IconImage.png")));
-        }
-         
          
          public JLabel getImageBackground(){
              return image;
