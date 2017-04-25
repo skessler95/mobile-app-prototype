@@ -20,6 +20,8 @@ public abstract class OffersView extends JPanel implements ActionListener{
     private JLabel image;
     private String imagebackground;
     private JButton uploadButton;
+    private JButton saveButton;
+    private JLabel iButtonLabel;
     private OffersModel o_model;
     
     OffersView(OffersModel o_model){
@@ -27,18 +29,45 @@ public abstract class OffersView extends JPanel implements ActionListener{
    
          
          this.o_model = o_model;
-         image = new JLabel(" ");
+         image = new JLabel("");
+         image.setBounds(10, 10, 670, 250);
          add(image);
          
          uploadButton = new JButton("Upload");
+         uploadButton.setBounds(300, 300, 100, 40);
          add(uploadButton);
          
+         saveButton = new JButton("Save and Return");
+         saveButton.setBounds(300, 300, 100, 40);
+         add(saveButton);
+         
+         iButtonLabel = new JLabel("Choose an image");
+         add(iButtonLabel);
+         
+         uploadButton.addActionListener(new ActionListener(){
+             @Override
+             public void actionPerformed(ActionEvent e){
+                JFileChooser file = new JFileChooser();
+             file.setCurrentDirectory(new File(System.getProperty("user.home")));
+             FileNameExtensionFilter filter = new FileNameExtensionFilter("*.images","jpg","gif","png");
+             file.addChoosableFileFilter(filter);
+             int result = file.showSaveDialog(null);
+             if(result == JFileChooser.APPROVE_OPTION){
+                 File selectedFile = file.getSelectedFile();
+                 String path = selectedFile.getAbsolutePath();
+                 image.setIcon(setImageBackground(path));  
+               }
+             else if(result == JFileChooser.CANCEL_OPTION){
+                 System.out.println("No File Chosen");
+             }
+            }
+         });
          SetIcon();
          
          GridLayout grid = new GridLayout(15,15);
          
          setLayout(grid);
-        }
+         }
     
         public void addButtonListener(ActionListener al){
           uploadButton.addActionListener(al);
@@ -74,11 +103,19 @@ public abstract class OffersView extends JPanel implements ActionListener{
              this.uploadButton = uploadButton;
          }
          
+         public JButton getSaveButton(){
+             return saveButton;
+         }
+         
+         public void setSaveButton(JButton saveButton){
+             this.saveButton = saveButton;
+         }
+         
+         
          @Override
          public void actionPerformed(ActionEvent e){
              
              if(uploadButton.isSelected()){
-              
                  image.setEnabled(true);
              }
              else{
@@ -86,19 +123,7 @@ public abstract class OffersView extends JPanel implements ActionListener{
                  image.setText(imagebackground);
              }
              
-             JFileChooser file = new JFileChooser();
-             file.setCurrentDirectory(new File(System.getProperty("user.home")));
-             FileNameExtensionFilter filter = new FileNameExtensionFilter("*.images","jpg","gif","png");
-             file.addChoosableFileFilter(filter);
-             int result = file.showSaveDialog(null);
-             if(result == JFileChooser.APPROVE_OPTION){
-                 File selectedFile = file.getSelectedFile();
-                 String path = selectedFile.getAbsolutePath();
-                 image.setIcon(setImageBackground(path));
-             }
-             else if(result == JFileChooser.CANCEL_OPTION){
-                 System.out.println("No File Chosen");
-             }
+          }
              
-         }
     }
+    

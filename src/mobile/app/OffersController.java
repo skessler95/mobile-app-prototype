@@ -4,10 +4,11 @@
  * and open the template in the editor.
  */
 package mobile.app;
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-
+        
 /**
  *
  * @author Steven
@@ -22,11 +23,12 @@ public class OffersController {
         this.o_view = o_view;
     
         
+        
         class ButtonListener implements ActionListener{
             public void actionPerformed(ActionEvent e){
                 JButton clickSource = (JButton)e.getSource();
                 if(clickSource == o_view.getUploadButton()){
-                    o_view.setImageBackground(null);
+                    
                 }
             }
         }
