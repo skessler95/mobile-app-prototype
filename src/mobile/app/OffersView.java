@@ -34,12 +34,11 @@ public abstract class OffersView extends JPanel implements ActionListener{
          content = new JPanel(new FlowLayout(FlowLayout.CENTER));
          defaultimage = getBackground();
          setLayout(new BorderLayout());
-         
+        
          iButtonLabel = new JLabel("Choose an image");
          image = new JLabel("");
          uploadButton = new JButton("Upload");
          saveButton = new JButton("Save and Return");
-//http://stackoverflow.com/questions/21375255/jpanel-positions-and-sizes-changes-according-to-screensize
         
          iButtonLabel.setFont(new Font("Aldhabi", Font.ITALIC, 20));
          add(iButtonLabel, BorderLayout.NORTH);
