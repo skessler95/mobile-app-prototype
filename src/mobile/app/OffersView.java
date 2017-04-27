@@ -20,6 +20,7 @@ public abstract class OffersView extends JPanel implements ActionListener{
     private Color defaultimage;
     private String imagebackground;
     private JButton uploadButton;
+    private JButton eraseButton;
     private JButton saveButton;
     private JLabel iButtonLabel;
     private OffersModel o_model;
@@ -38,6 +39,7 @@ public abstract class OffersView extends JPanel implements ActionListener{
          iButtonLabel = new JLabel("Choose an image");
          image = new JLabel("");
          uploadButton = new JButton("Upload");
+         eraseButton = new JButton("Erase");
          saveButton = new JButton("Save and Return");
         
          iButtonLabel.setFont(new Font("Aldhabi", Font.ITALIC, 20));
@@ -58,8 +60,10 @@ public abstract class OffersView extends JPanel implements ActionListener{
        JPanel southCenter = new JPanel(new FlowLayout(FlowLayout.CENTER));
        southCenter.setBounds(30, 30, 150, 60);
        southCenter.add(uploadButton);
+       southCenter.add(eraseButton);
        southCenter.add(saveButton);
        uploadButton.setPreferredSize(new Dimension(110, 40));
+       eraseButton.setPreferredSize(new Dimension(110, 40));
        saveButton.setPreferredSize(new Dimension(130, 40));
        add(southCenter, BorderLayout.SOUTH);
          
@@ -94,6 +98,14 @@ public abstract class OffersView extends JPanel implements ActionListener{
         
          public void setUploadButton(JButton uploadButton){
              this.uploadButton = uploadButton;
+         }
+         
+         public JButton getEraseButton(){
+             return eraseButton;
+         }
+         
+         public void setEraseButton(JButton eraseButton){
+             this.eraseButton = eraseButton;
          }
          
          public JButton getSaveButton(){
