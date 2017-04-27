@@ -19,7 +19,11 @@ public class View extends JFrame{
     View(){
         super("The Look");
         this.setSize(800, 850);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setVisible(true);
         nVpanel = new NavViewPanel();
         
         add(nVpanel);

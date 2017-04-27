@@ -19,7 +19,6 @@ public class OffersController {
     private OffersModel o_model;
     private OffersView o_view;
     private Image defaultimage;
-    public JLabel image;
     
     OffersController(OffersModel o_model, OffersView o_view){
         this.o_model = o_model;
@@ -39,13 +38,13 @@ public class OffersController {
              if(result == JFileChooser.APPROVE_OPTION){
                  File selectedFile = file.getSelectedFile();
                  String path = selectedFile.getAbsolutePath();
-                 image.setIcon(o_view.setImageBackground(path));  
+                 o_view.getImageBackground().setIcon(o_view.setImageBackground(path));  
                }
              else if(result == JFileChooser.CANCEL_OPTION){
                  System.out.println("No File Chosen");
                         }
                     }
-                if(clickSource == o_view.getSaveButton()){
+               if(clickSource == o_view.getSaveButton()){
                     
                     }
                 }

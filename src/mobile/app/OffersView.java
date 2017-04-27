@@ -16,42 +16,60 @@ import java.awt.event.*;
  */
 public abstract class OffersView extends JPanel implements ActionListener{
     
-    public JLabel image;
+    private JLabel image;
+    private Color defaultimage;
     private String imagebackground;
     private JButton uploadButton;
     private JButton saveButton;
     private JLabel iButtonLabel;
     private OffersModel o_model;
+    private JPanel content;
+    private JPanel southCenter;
     
     OffersView(OffersModel o_model){
         
-   
          
          this.o_model = o_model;
-         image = new JLabel("");
-         image.setBounds(10, 10, 670, 250);
-         add(image);
          
-         uploadButton = new JButton("Upload");
-         uploadButton.setBounds(300, 300, 100, 40);
-         add(uploadButton);
-         
-         saveButton = new JButton("Save and Return");
-         saveButton.setBounds(300, 300, 100, 40);
-         add(saveButton);
+         content = new JPanel(new FlowLayout(FlowLayout.CENTER));
+         defaultimage = getBackground();
+         setLayout(new BorderLayout());
          
          iButtonLabel = new JLabel("Choose an image");
-         add(iButtonLabel);
+         image = new JLabel("");
+         uploadButton = new JButton("Upload");
+         saveButton = new JButton("Save and Return");
+//http://stackoverflow.com/questions/21375255/jpanel-positions-and-sizes-changes-according-to-screensize
+        
+         iButtonLabel.setFont(new Font("Aldhabi", Font.ITALIC, 20));
+         add(iButtonLabel, BorderLayout.NORTH);
+          
+         content.add(image);
+         Toolkit toolkit = Toolkit.getDefaultToolkit();
+         content.setSize(toolkit.getScreenSize().width, toolkit.getScreenSize().height);
+         int w = toolkit.getScreenSize().width;
+         int h = toolkit.getScreenSize().height;
+         content.setBounds(400, 425, 600, 600);
+         image.setPreferredSize(new Dimension(700, 700));
+         content.setVisible(true);
+         add(content, BorderLayout.CENTER);
+         add(content);
          
-
-         GridLayout grid = new GridLayout(15,15);
+    
+       JPanel southCenter = new JPanel(new FlowLayout(FlowLayout.CENTER));
+       southCenter.setBounds(30, 30, 150, 60);
+       southCenter.add(uploadButton);
+       southCenter.add(saveButton);
+       uploadButton.setPreferredSize(new Dimension(110, 40));
+       saveButton.setPreferredSize(new Dimension(130, 40));
+       add(southCenter, BorderLayout.SOUTH);
          
-         setLayout(grid);
+        
          }
     
         public void addButtonListener(ActionListener al){
-          uploadButton.addActionListener(al);
-          saveButton.addActionListener(al);
+        uploadButton.addActionListener(al);
+        saveButton.addActionListener(al);
         }
          
         public void setImageField(String Image1) {
