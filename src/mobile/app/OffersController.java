@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.io.File;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
         
 /**
  *
@@ -30,27 +31,31 @@ public class OffersController {
             public void actionPerformed(ActionEvent e){
                 JButton clickSource = (JButton)e.getSource();
                 if(clickSource == o_view.getUploadButton()){
-                JFileChooser file = new JFileChooser();
-             file.setCurrentDirectory(new File(System.getProperty("user.home")));
-             FileNameExtensionFilter filter = new FileNameExtensionFilter("*.images","jpg","gif","png");
-             file.addChoosableFileFilter(filter);
-             int result = file.showSaveDialog(null);
-             if(result == JFileChooser.APPROVE_OPTION){
-                 File selectedFile = file.getSelectedFile();
-                 String path = selectedFile.getAbsolutePath();
-                 o_view.getImageBackground().setIcon(o_view.setImageBackground(path));  
+                    JFileChooser file = new JFileChooser();
+                    file.setCurrentDirectory(new File(System.getProperty("user.home")));
+                    FileNameExtensionFilter filter = new FileNameExtensionFilter("*.images","jpg","gif","png");
+                    file.addChoosableFileFilter(filter);
+                    int result = file.showSaveDialog(null);
+                if(result == JFileChooser.APPROVE_OPTION){
+                    File selectedFile = file.getSelectedFile();
+                    String path = selectedFile.getAbsolutePath();
+                    o_view.getImageBackground().setIcon(o_view.setImageBackground(path));  
                }
              else if(result == JFileChooser.CANCEL_OPTION){
-                 System.out.println("No File Chosen");
+                    System.out.println("No File Chosen");
+                            }
+                        }
+               if(clickSource == o_view.getEraseButton()){
+                    o_view.getImageBackground().setIcon(o_view.setImageBackground(null));
+                    //http://stackoverflow.com/questions/5914608/java-delete-an-imageicon
+                        }
+               if(clickSource == o_view.getSaveButton()){
+                    o_view.setImageField(o_model.getImage());
+                    o_model.setChanged(true);
                         }
                     }
-               if(clickSource == o_view.getSaveButton()){
-                    
-                    }
                 }
+                o_view.addButtonListener(new ButtonListener());
             }
-            o_view.addButtonListener(new ButtonListener());
-        
         }
        
-    }

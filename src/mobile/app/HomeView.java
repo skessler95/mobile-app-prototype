@@ -5,9 +5,12 @@
  */
 package mobile.app;
 
-import java.awt.GridLayout;
+import java.awt.BorderLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -15,16 +18,32 @@ import javax.swing.JPanel;
  */
 public class HomeView extends JPanel{
     
-    private JLabel home1;
+    private JLabel menuLabel;
+    
+    private HomeModel h_model;
+    private OffersModel o_model;
+    private OffersView o_view;
+    private JButton previousButton;
+    private JButton nextButton;
+    private JLabel image;
+    private JLabel optionsLabel;
+    private JLabel userName;
+    private ImageIcon imagebackground;
+    private JPanel content;
+    
     
     HomeView(){
+      
+        this.h_model = h_model;
         
-         GridLayout grid = new GridLayout(15,15);
-         
-         home1 = new JLabel("Home");
-         add(home1);
-         
-         setLayout(grid);
+        content = new JPanel();
+        
+        setLayout(new BorderLayout());
+        
+       menuLabel = new JLabel("Welcome to The Look!");
+       previousButton = new JButton("Previous");
+       nextButton = new JButton("Next");
+       
          
     }
 }

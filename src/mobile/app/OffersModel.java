@@ -5,14 +5,16 @@
  */
 package mobile.app;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Steven
  */
 public class OffersModel {
     
-    private String image;
-    private String imagebackground;
+    private String imagename;
+    private ImageIcon imagebackground;
     private boolean hasChanged;
     private boolean displayNames;
     
@@ -24,12 +26,12 @@ public class OffersModel {
         return hasChanged;
     }
     
-    public void setImage(String image){
-        this.image = image;
+    public void setImage(String imagename){
+        this.imagename = imagename;
     }
     
     public String getImage(){
-        return image;
+        return imagename;
     }
     
     public void setChanged(boolean h){
