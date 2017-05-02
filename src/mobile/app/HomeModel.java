@@ -11,7 +11,6 @@ package mobile.app;
  */
 public class HomeModel {
       private String imagebackground;
-      private String userName;
       private int userRating;
       
       HomeModel(){
@@ -32,13 +31,5 @@ public class HomeModel {
       
       public int getUserRating(){
           return userRating;
-      }
-      
-      public void setUserName(String userName){
-          this.userName = userName;
-      }
-      
-      public String getUserName(){
-          return userName;
       }
 }
