@@ -10,9 +10,11 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -47,11 +49,16 @@ public class HomeView extends JPanel implements ActionListener{
     private JPanel southCenter;
     private ButtonGroup group;
     private Color defaultimage;
+    Clothing clothes;
     
     
-    HomeView(){
+    HomeView(HomeModel h_model, OffersModel o_model, OffersView o_view){
       
+        //http://stackoverflow.com/questions/19697996/adding-the-same-components-to-multiple-panels
+        
         this.h_model = h_model;
+        this.o_model = o_model;
+        this.o_view = o_view;
         
         content = new JPanel(new FlowLayout(FlowLayout.CENTER));
         defaultimage = getBackground();
@@ -124,12 +131,171 @@ public class HomeView extends JPanel implements ActionListener{
          userRate5.setPreferredSize(new Dimension(80, 30));
          optionsLabel.setFont(new Font("Aldhabi", Font.ITALIC, 16));
          add(southCenter, BorderLayout.SOUTH);
-  
+         
     }
 
+    
+    public void addButtonListener(ActionListener al){
+       previousButton.addActionListener(al);
+       nextButton.addActionListener(al);
+    }
+    
+    public void setContent(JPanel content){
+        this.content = content;
+    }
+    
+    public JPanel getContent(){
+      return content;  
+    }
+    
+    public void setWestSide(JPanel westSide){
+        this.westSide = westSide;
+    }
+    
+    public JPanel getWestSide(){
+      return westSide;  
+    }
+    
+    public void setEastSide(JPanel eastSide){
+        this.eastSide = eastSide;
+    }
+    
+    public JPanel getEastSide(){
+      return eastSide;  
+    }
+    
+    public void setSouthCenter(JPanel southCenter){
+        this.southCenter = southCenter;
+    }
+    
+    public JPanel getSouthCenter(){
+      return southCenter;  
+    }
+    
+    public void setMenuLabel(JLabel menuLabel){
+        this.menuLabel = menuLabel;
+    }
+    
+    public JLabel getMenuLabel(){
+        return menuLabel;
+    }
+    
+    
+    public void setPreviousButton(JButton previousButton){
+        this.previousButton = previousButton;
+    }
+    
+    public JButton getPreviousButton(){
+        return previousButton;
+    }
+    
+    public void setNextButton(JButton nextButton){
+        this.nextButton = nextButton;
+    }
+    
+    public JButton getNextButton(){
+        return nextButton;
+    }
+    
+    public ImageIcon setImageBackground(String imagePath){
+        ImageIcon Myimage = new ImageIcon(imagePath);
+        Image img = Myimage.getImage();
+        Image newImg = img.getScaledInstance(image.getWidth() , image.getHeight() , Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(newImg);
+        return image;
+    }   
+    
+    public JLabel getImageBackground(){
+        return image;
+    }
+    
+    public JRadioButton getOneButton(){
+        return userRate1;
+    }
+    
+    public JRadioButton getTwoButton(){
+        return userRate2;
+    }
+    
+    public JRadioButton getThreeButton(){
+        return userRate3;
+    }
+    
+    public JRadioButton getFourButton(){
+        return userRate4;
+    }
+    
+    public JRadioButton getFiveButton(){
+        return userRate5;
+    }
+    
+    public boolean showUserOpinion(){
+        if(userRate1.isSelected()){
+            return true;
+        }
+        else if(userRate2.isSelected()){
+            return true;
+        }
+        else if(userRate3.isSelected()){
+            return true;
+        }
+        else if(userRate4.isSelected()){
+            return true;
+        }
+        else if(userRate5.isSelected()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+ 
+//    https://www.youtube.com/watch?v=OTTIsOSzSts
+    
+    
+    public String [] getImages(){
+        String imagePath = null;
+        File file = new File(o_view.getClass().getResource(imagePath).getFile());
+        String[] imageList = file.list();
+        return imageList;
+    }
+    
+    public void showImage(int index){
+        String imagePath = null;
+        String [] imageList = getImages();
+        String imageName = imageList[index];
+        ImageIcon icon = new ImageIcon(o_view.getClass().getResource(imagePath + imageName));
+        Image image = icon.getImage().getScaledInstance(o_view.getImageBackground().getWidth(), o_view.getImageBackground().getHeight(), Image.SCALE_SMOOTH);
+        o_view.getImageBackground().setIcon(new ImageIcon(image));
+    }
+
+//    http://www.dreamincode.net/forums/topic/116324-set-radiobutton-value/
+    
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        if(h_model.getUserRating() == 1){
+            userRate1.setSelected(true);
+        }
+        else if(h_model.getUserRating() == 2){
+           userRate2.setSelected(true);
+        }
+        else if(h_model.getUserRating() == 3){
+           userRate3.setSelected(true);
+        }
+        else if(h_model.getUserRating() == 4){
+           userRate4.setSelected(true);  
+        }
+        else if(h_model.getUserRating() == 5){
+           userRate5.setSelected(true);  
+        }
+        else{
+           userRate1.setSelected(false);
+           userRate2.setSelected(false); 
+           userRate3.setSelected(false); 
+           userRate4.setSelected(false); 
+           userRate5.setSelected(false); 
+        }
     }
 
 }

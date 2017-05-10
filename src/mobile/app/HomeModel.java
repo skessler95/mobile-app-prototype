@@ -5,6 +5,7 @@
  */
 package mobile.app;
 
+
 /**
  *
  * @author Steven
@@ -12,6 +13,7 @@ package mobile.app;
 public class HomeModel {
       private String imagebackground;
       private int userRating;
+      private boolean userOpinion;
       
       HomeModel(){
           
@@ -32,4 +34,15 @@ public class HomeModel {
       public int getUserRating(){
           return userRating;
       }
+      
+      public void setUserOpinion(boolean u){
+          this.userOpinion = u;
+      }
+      
+      public boolean getUserOpinion(){
+          return this.userOpinion;
+      }
+      
+      
+      
 }

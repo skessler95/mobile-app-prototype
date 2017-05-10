@@ -17,8 +17,14 @@ public class Controller {
     
     private View view;
     
-    private HomeView h_view;
+    private Clothing clothes;
     
+    //Instance Variables for Home Model, View, and Controller
+    private HomeModel h_model;
+    private HomeView h_view;
+    private HomeController h_controller;
+    
+     //Instance Variables for Offers Model, View, and Controller
     private OffersModel o_model;
     private OffersView o_view;
     private OffersController o_controller;
@@ -33,9 +39,10 @@ public class Controller {
         
         this.view = view;
         
-        h_view = new HomeView();
+        h_model = new HomeModel();
+        h_view = new HomeView(h_model, o_model, o_view);
+        h_controller = new HomeController(h_view, h_model);
         
-        //Instance Variables for Options Model, View, and Controller
         o_model = new OffersModel();
         o_view = new OffersView(o_model) {};
         o_controller = new OffersController(o_model, o_view);
@@ -92,4 +99,5 @@ public class Controller {
                 view.switchToSettingsPanel(s_view);        
         }
     }  
+    
 }

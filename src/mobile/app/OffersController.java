@@ -46,12 +46,21 @@ public class OffersController {
                             }
                         }
                if(clickSource == o_view.getEraseButton()){
-                    o_view.getImageBackground().setIcon(o_view.setImageBackground(null));
+                    String file_delete_path = null;
+                    File fileDelete = new File(file_delete_path);
+                    if(fileDelete.exists()){
+                        if(fileDelete.delete()){
+                            System.out.println("File Deleted" + file_delete_path);
+                        }else{
+                            System.out.println("File Not Deleted" + file_delete_path);
+                        }
+                    }
                     //http://stackoverflow.com/questions/5914608/java-delete-an-imageicon
                         }
                if(clickSource == o_view.getSaveButton()){
                     o_view.setImageField(o_model.getImage());
                     o_model.setChanged(true);
+                    
                         }
                     }
                 }
