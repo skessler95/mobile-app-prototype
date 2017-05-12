@@ -19,11 +19,15 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class OffersController {
     private OffersModel o_model;
     private OffersView o_view;
+    private HomeView h_view;
     private Image defaultimage;
+    Clothing clothes;
     
-    OffersController(OffersModel o_model, OffersView o_view){
+    OffersController(OffersModel o_model, OffersView o_view, HomeView h_view, Clothing clothes){
         this.o_model = o_model;
         this.o_view = o_view;
+        this.h_view = h_view;
+        this.clothes = clothes;
     
         
         
@@ -60,7 +64,12 @@ public class OffersController {
                if(clickSource == o_view.getSaveButton()){
                     o_view.setImageField(o_model.getImage());
                     o_model.setChanged(true);
-                    
+//                    o_view.getImageBackground() == h_view.getImageBackground();
+                    clothes.setUser_Rate(h_view.getOneButton().getDisplayedMnemonicIndex());
+                    clothes.setUser_Rate(h_view.getTwoButton().getDisplayedMnemonicIndex());
+                    clothes.setUser_Rate(h_view.getThreeButton().getDisplayedMnemonicIndex());
+                    clothes.setUser_Rate(h_view.getFourButton().getDisplayedMnemonicIndex());
+                    clothes.setUser_Rate(h_view.getFiveButton().getDisplayedMnemonicIndex());
                         }
                     }
                 }

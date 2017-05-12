@@ -45,7 +45,7 @@ public class Controller {
         
         o_model = new OffersModel();
         o_view = new OffersView(o_model) {};
-        o_controller = new OffersController(o_model, o_view);
+        o_controller = new OffersController(o_model, o_view, h_view, clothes);
         
         st_view = new StoresView();
         
