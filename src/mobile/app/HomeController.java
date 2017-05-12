@@ -15,14 +15,17 @@ import javax.swing.*;
  */
 public class HomeController {
     private HomeView h_view;
+    private OffersView o_view;
     private HomeModel h_model;
     private View view;
     
+    
     private NavViewPanel nVpanel;
     
-    HomeController(HomeView h_view, HomeModel h_model){
+    HomeController(HomeView h_view, OffersView o_view, HomeModel h_model){
         this.h_view = h_view;
         this.h_model = h_model;
+        this.o_view = o_view;
         
         class ButtonListener implements ActionListener{
             
@@ -34,8 +37,11 @@ public class HomeController {
                     int number = 0;
                     
                     number = number - 1;
-                    if(number >= h_view.getImages().length){
-                        number = h_view.getImages().length - 1;
+                    
+                    String imagepath = null;
+                    ImageIcon image = o_view.setImageBackground(imagepath);
+                    if(number >= 0){
+                        number = h_view.getImages(imagepath).length - 1;
                     }
                     h_view.showImage(number);
                 }

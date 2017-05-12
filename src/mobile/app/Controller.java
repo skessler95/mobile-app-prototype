@@ -41,7 +41,7 @@ public class Controller {
         
         h_model = new HomeModel();
         h_view = new HomeView(h_model, o_model, o_view);
-        h_controller = new HomeController(h_view, h_model);
+        h_controller = new HomeController(h_view, o_view, h_model);
         
         o_model = new OffersModel();
         o_view = new OffersView(o_model) {};

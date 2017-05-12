@@ -253,18 +253,20 @@ public class HomeView extends JPanel implements ActionListener{
 //    https://www.youtube.com/watch?v=OTTIsOSzSts
     
     
-    public String [] getImages(){
-        String imagePath = null;
-        File file = new File(o_view.getClass().getResource(imagePath).getFile());
+    public String [] getImages(String imagepath){
+        ImageIcon image = o_view.setImageBackground(imagepath);
+        File file = new File(o_view.getClass().getResource(imagepath).getFile());
         String[] imageList = file.list();
         return imageList;
     }
     
+//    String [] imageList = getImages();
+    
     public void showImage(int index){
-        String imagePath = null;
-        String [] imageList = getImages();
+        String imagepath = null;
+        String [] imageList = getImages(imagepath);
         String imageName = imageList[index];
-        ImageIcon icon = new ImageIcon(o_view.getClass().getResource(imagePath + imageName));
+        ImageIcon icon = new ImageIcon(o_view.getClass().getResource(imagepath + imageName));
         Image image = icon.getImage().getScaledInstance(o_view.getImageBackground().getWidth(), o_view.getImageBackground().getHeight(), Image.SCALE_SMOOTH);
         o_view.getImageBackground().setIcon(new ImageIcon(image));
     }
